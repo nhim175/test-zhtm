@@ -1,11 +1,11 @@
 {
-  "name": "nhim175.github.com",
+  "name": "modular-angular-skeleton",
   "version": "0.0.0",
   "homepage": "http://nhim175.github.io",
   "authors": [
     "Thinh Pham <nhim175@gmail.com>"
   ],
-  "description": "github page",
+  "description": "Modular angular skeleton app with sass, coffee",
   "moduleType": [
     "node"
   ],
