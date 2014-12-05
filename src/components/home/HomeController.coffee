@@ -1,14 +1,20 @@
-app = angular.module 'app'
-
 app.config ($stateProvider, $urlRouterProvider) ->
-  $urlRouterProvider.otherwise "/index"
 
   $stateProvider
     .state 'index',
-      url: '/index'
+      abstract: true
       templateUrl: 'components/home/home.html'
       controller: 'HomeController'
+      resolve:
+        categories: (Category) ->
+          Category.Collection.fetch()
 
+app.controller 'HomeController', ['$scope', '$rootScope', 'Category', 'categories', ($scope, $rootScope, Category, categories) ->
+  $scope.category = categories
 
-app.controller 'HomeController', ($scope) ->
-  $scope.text = 'Hello World'
+  $scope.offScreen = false
+  
+  $rootScope.$broadcast 'category::fetched', categories
+
+  $scope.toggleOffScreen = -> $scope.offScreen = !$scope.offScreen
+]

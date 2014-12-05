@@ -1,0 +1,102 @@
+$profile-photo-size: 82px !default;
+$bg-default: #2b3e50 !default;
+$nav-bg-default: #4e5d6c !default;
+$link-color: #df691a !default;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100%;
+}
+
+#fb-root {
+  display: none;
+}
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+  width: 100% !important;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+textarea.theme-inverse {
+  background: $bg-default;
+  color: white;
+  resize: none;
+}
+.content-pane {
+  background: $bg-default;
+  transition: all 0.2s;
+  position: relative;
+  &.toggle {
+    transform: translateX(-60%);
+  }
+}
+.offscreen-nav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  z-index: 0;
+  background: darken($bg-default, 10%);
+}
+header.header {
+  .offscreen-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    font-size: 20px;
+    z-index: 1;
+    a {
+      color: $nav-bg-default;
+    }
+  }
+  .profile {
+    padding: 100px 0px 0px;
+    text-align: center;
+    border-top: 4px solid $nav-bg-default;
+  }
+  .profile-photo {
+    width: $profile-photo-size;
+    height: $profile-photo-size;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid $bg-default;
+  }
+  h1 {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    line-height: 40px;
+    margin-top: 20px;
+  }
+  .social-links {
+    line-height: 40px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    a {
+      padding: 0px 20px;
+    }
+  }
+  .navbar {
+    height: 49px;
+    margin-bottom: 80px;
+  }
+  .navbar-collapse {
+    text-align: center;
+  }
+  .navbar-nav {
+    display: inline-block;
+    float: none !important;
+    > li
+      > a {
+        @media (min-width: 768px) {
+          padding-top: 14px;
+          padding-bottom: 14px;
+        }
+      }
+  }
+    
+}
