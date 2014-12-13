@@ -51,11 +51,12 @@ app.controller 'PostController', ['$scope', '$state', 'Post', 'Category', ($scop
   $scope.getCategoryColorById = (id) -> Category.find(id).get('color')
 ]
 
-app.controller 'SinglePostController', ['$scope', '$stateParams', '$window', '$timeout', 'Post', 'Category', 'post', ($scope, $stateParams, $window, $timeout, Post, Category, post) ->
+app.controller 'SinglePostController', ['$scope', '$stateParams', '$window', '$timeout', 'Post', 'Category', 'Setting', 'post', ($scope, $stateParams, $window, $timeout, Post, Category, Setting, post) ->
 
   $scope.post = post
   $scope.category = Category.find(post.get('category').id)
   $scope.postContent = post.get('content').replace /\[md\]([\s\S]*?)\[\/md\]/g, (str, m1) -> markdown.toHTML m1
+  Setting.setHeadTitle post.get 'title'
 
   $disqusResetTimeout = null
   $window.onresize = ->

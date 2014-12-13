@@ -9,12 +9,14 @@ app.config ($stateProvider, $urlRouterProvider) ->
         categories: (Category) ->
           Category.Collection.fetch()
 
-app.controller 'HomeController', ['$scope', '$rootScope', '$document', '$timeout', 'Category', 'categories', ($scope, $rootScope, $document, $timeout, Category, categories) ->
+app.controller 'HomeController', ['$scope', '$rootScope', '$document', '$timeout', 'Category', 'Setting', 'categories', ($scope, $rootScope, $document, $timeout, Category, Setting, categories) ->
   $scope.category = categories
 
   $scope.offScreen = false
   
   $rootScope.$broadcast 'category::fetched', categories
+
+  angular.element('title').html Setting.blogTitle()
 
   $scope.toggleOffScreen = -> 
     $scope.offScreen = !$scope.offScreen

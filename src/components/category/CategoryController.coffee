@@ -6,10 +6,12 @@ app.config ($stateProvider, $urlRouterProvider) ->
       templateUrl: 'components/post/post.grid.html'
       controller: 'CategoryController'
       resolve:
-        posts: ($stateParams, Post, Category) ->
-          Post.Query.equalTo("category", Category.find $stateParams.id).find()
+        posts: ($stateParams, Post, Category, Setting) ->
+          category = Category.find $stateParams.id
+          Setting.setHeadTitle category.get('name')
+          Post.Query.equalTo("category", category).find()
 
-app.controller 'CategoryController', ['$scope', '$state', 'Post', 'Category', 'posts', 'categories', ($scope, $state, Post, Category, posts, categories) ->
+app.controller 'CategoryController', ['$scope', '$state', 'Post', 'Category', 'Setting', 'posts', 'categories', ($scope, $state, Post, Category, Setting, posts, categories) ->
   $scope.post = 
     models: posts
     
