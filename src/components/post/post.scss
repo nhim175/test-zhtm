@@ -23,6 +23,7 @@ $card-separator-color: #717F8C !default;
   height: 300px;
   position: relative;
   overflow: hidden;
+  flex: 1;
   &:after {
     content: '';
     display: block;
