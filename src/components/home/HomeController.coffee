@@ -19,10 +19,14 @@ app.controller 'HomeController', ['$scope', '$rootScope', '$document', '$timeout
   $scope.toggleOffScreen = -> 
     $scope.offScreen = !$scope.offScreen
     if $scope.offScreen is true
+      handle_document_click = (event) ->
+        if event.target instanceof HTMLInputElement
+          return $document.one 'click', handle_document_click
+        $scope.offScreen = false
+        $scope.$apply()
+
       $timeout ->
-        $document.one 'click', (event) ->
-          $scope.offScreen = false
-          $scope.$apply()
+        $document.one 'click', handle_document_click
       , 0
     return false
 

@@ -1,9 +1,12 @@
-app.directive 'markdown', ->
+app.directive 'markdown', ($compile) ->
   config =
     restrict: 'E',
     scope: 
       content: '='
 
     link: (scope, elem, attrs) ->
-      elem.html markdown.toHTML scope.content
+      content = scope.content.replace /\[md\]([\s\S]*?)\[\/md\]/g, (str, m1) -> markdown.toHTML m1
+      elem.html content
+      $compile(elem.contents())(scope)
+
     

@@ -33,7 +33,9 @@ textarea.theme-inverse {
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   &.toggle {
+    -webkit-transform: translateX(-60%);
     transform: translateX(-60%);
   }
 }
