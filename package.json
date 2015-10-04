@@ -30,6 +30,7 @@
     "lodash": "^3.10.1"
   },
   "devDependencies": {
-    "gulp-install": "^0.6.0"
+    "gulp-install": "^0.6.0",
+    "gulp-webserver": "^0.9.1"
   }
 }

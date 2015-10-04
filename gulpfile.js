@@ -5,6 +5,9 @@ var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var coffee = require('gulp-coffee');
 var symlink = require('gulp-symlink');
+var install = require('gulp-install');
+var webserver = require('gulp-webserver');
+var _ = require('lodash');
 
 var sources = {
   html: ['src/*.html', 'src/**/*.html'],
@@ -17,11 +20,20 @@ var copies = [
   'assets/**'
 ];
 
-gulp.task('default', ['clean-build', 'copy', 'html', 'sass', 'coffee', 'watch']);
+var symlinks = [
+  { from: 'bower_components', to: 'build/bower_components' },
+  { from: 'assets', to: 'build/assets' }
+];
+
+gulp.task('default', ['clean-build', 'copy', 'html', 'sass', 'coffee', 'watch', 'webserver']);
 
 gulp.task('clean-build', function() {
   return gulp.src('build/*', {read: false})
     .pipe(clean());
+});
+
+gulp.task('install', function() {
+  return gulp.src(['./bower.json']).pipe(install());
 });
 
 gulp.task('html', function() {
@@ -57,7 +69,15 @@ gulp.task('watch-coffee', function() {
   var watcher = gulp.watch(sources.coffee, ['coffee']);
 });
 
-gulp.task('copy', function() {
-  return gulp.src(copies, { "base" : "." })
-    .pipe(gulp.dest('build/'));
+gulp.task('webserver', ['install'], function() {
+  gulp.src('./build').pipe(webserver({
+    host: '127.0.0.1',
+    port: '3000'
+  }));
+});
+
+gulp.task('copy', ['install'], function() {
+  return _.each(symlinks, function(link) {
+    gulp.src(link.from).pipe(symlink(link.to));
+  });
 });
