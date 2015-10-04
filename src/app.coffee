@@ -1,9 +1,7 @@
 app = angular.module 'app'
 
-app.config ($stateProvider, $urlRouterProvider, $locationProvider, $disqusProvider) ->
+app.config ($stateProvider, $urlRouterProvider, $locationProvider) ->
 
   $urlRouterProvider.otherwise "/users"
 
   $locationProvider.hashPrefix '!'
-
-  $disqusProvider.setShortname 'nhim175'
