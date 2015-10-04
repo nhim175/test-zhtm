@@ -21,6 +21,10 @@ app.use(bodyParser.urlencoded())
 
 # Auth check
 app.use (req, res, next) ->
+  # TODO: only auth check for secured api
+
+  return next() if req.path is '/api/login'
+
   token = req.query.token
   
   try 
@@ -32,7 +36,7 @@ app.use (req, res, next) ->
         status: "failed"
         message: "unauthorized"
     else
-      next()
+      return next()
 
   catch e
     res.json

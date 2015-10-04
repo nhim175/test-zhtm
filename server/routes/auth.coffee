@@ -19,8 +19,6 @@ router.route('/login').post (req, res) ->
   username = req.body.username
   password = crypto.createHash('md5').update(req.body.password).digest('hex')
 
-  console.log(username)
-
   # TODO: Login logic should be in Login model
   user = _.find User.all(), (user) ->
     user.username = username
