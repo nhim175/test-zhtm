@@ -28,5 +28,8 @@
     "gulp-util": "^3.0.1",
     "jsonwebtoken": "^5.4.0",
     "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "gulp-install": "^0.6.0"
   }
 }
