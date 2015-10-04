@@ -1,43 +1,21 @@
-# Modular angular skeleton
+# Requirements
 
-#### Angular skeleton app with sass, coffee in a modular way
+- npm installed
+- bower installed
+- coffee installed
+- port 3000, 3001 are free
 
-## Demo
-    
-[http://nhim175.github.io/]()
+#How to run
 
-## Installation
-
-- git clone https://github.com/nhim175/modular-angular-skeleton.git
-- cd modular-angular-skeleton
+- npm install
 - gulp clean-build && gulp
-- cd module-angular-skeleton/build && python -m SimpleHTTPServer 3000
-- Open http://localhost:3000 on your browser
+- Run api server: cd /path/to/project/server && coffee index.coffee
+- open in browser: http://localhost:3000
 
-## Structure
-    src
-    |-- app.coffee
-    |-- components
-    |   |-- admin
-    |   |-- home
-    |   |   |-- HomeController.coffee
-    |   |   |-- home.html
-    |   |   `-- home.scss
-    |   |-- login
-    |   |-- post
-    |   |   |-- PostController.coffee
-    |   |   |-- post.admin.html
-    |   |   |-- post.grid.html
-    |   |   |-- post.new.html
-    |   |   |-- post.scss
-    |   |   `-- post.single.html
-    |-- directives
-    |   |-- markdown.coffee
-    |   `-- moment.coffee
-    |-- index.html
-    `-- services
-        |-- Post.coffee
-        `-- User.coffee
+# Author
+Thinh Pham [http://nhim175.github.io](http://nhim175.github.io)
 
-## Demo source code
-[https://github.com/nhim175/modular-angular-skeleton-demo]()
+# Issues report
+Feel free to send email to: [nhim175@gmail.com](nhim175@gmail.com)
+
+Thanks!
