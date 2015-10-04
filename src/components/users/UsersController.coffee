@@ -6,8 +6,10 @@ app.config ($stateProvider, $urlRouterProvider) ->
       templateUrl: 'components/users/index.html'
       controller: 'UsersController'
 
-app.controller 'UsersController', ['$scope', '$rootScope', '$state', 'UserService', ($scope, $rootScope, $state, UserService) ->
+app.controller 'UsersController', ['$scope', '$rootScope', '$state', 'UserService', 'Users', ($scope, $rootScope, $state, UserService, Users) ->
 
-  $state.go 'login' unless UserService.getCurrent()
+  return $state.go 'login' unless UserService.getCurrent()
+
+  $scope.users = Users.query()
   
 ]

@@ -101,3 +101,21 @@ body {
 .page-title {
   margin-top: 0;
 }
+
+/*
+ * Bootstrap table
+ */
+
+.table {
+  > tbody {
+    tr {
+      th {
+        border-bottom: 2px solid $nav-bg-default;
+      }
+
+      td {
+        border-bottom: 1px solid $nav-bg-default;
+      }
+    }
+  }
+}
