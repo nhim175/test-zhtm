@@ -10,6 +10,9 @@ class User
   @all: -> 
     _.clone(users, true)
 
+  @find: (id) ->
+    _.find @all(), (user) -> user.id == parseInt(id)
+
   @removeSensitiveData: (user) ->
     delete user.password
     user

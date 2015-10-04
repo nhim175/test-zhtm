@@ -4,6 +4,7 @@ _ = require 'lodash'
 jwt = require 'jsonwebtoken'
 
 User = require '../models/user'
+Setting = require '../models/setting'
 
 router = express.Router()
 
@@ -11,7 +12,7 @@ failResponse =
   status: "failed"
   # TODO: reason why failed?
 
-jwtPrivateKey = "super_private^.^"
+jwtPrivateKey = Setting.jwtPrivateKey
 
 router.route('/login').post (req, res) ->
 
