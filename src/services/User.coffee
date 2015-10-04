@@ -1,3 +1,12 @@
-app.factory 'User', ->
+app.service 'User', ->
 
-  return Parse.User
+  @current = null;
+
+  @login = (email, password) -> 
+    @setCurrent(email: email)
+    true
+
+  @getCurrent = -> @current
+
+  @setCurrent = (user) -> @current = user
+  
