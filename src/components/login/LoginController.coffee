@@ -14,6 +14,7 @@ app.controller 'LoginController', ['$scope', '$rootScope', '$state', 'UserServic
         data = response.data
         if data.status is 'success'
           UserService.setCurrent(data.user)
+          UserService.setToken(data.token)
           $state.go 'index.users'
         else
           # TODO: show some cool message here to let the user know that he's failed

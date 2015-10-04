@@ -8,8 +8,8 @@ app.config ($stateProvider, $urlRouterProvider) ->
 
 app.controller 'UsersController', ['$scope', '$rootScope', '$state', 'UserService', 'Users', ($scope, $rootScope, $state, UserService, Users) ->
 
-  return $state.go 'login' unless UserService.getCurrent()
+  return $state.go 'login' unless UserService.getToken()
 
-  $scope.users = Users.query()
+  $scope.users = Users.resource().query()
   
 ]
