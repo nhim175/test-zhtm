@@ -6,10 +6,10 @@ app.config ($stateProvider, $urlRouterProvider) ->
       templateUrl: 'components/login/login.html'
       controller: 'LoginController'
 
-app.controller 'LoginController', ['$scope', '$rootScope', '$state', 'User', ($scope, $rootScope, $state, User) ->
+app.controller 'LoginController', ['$scope', '$rootScope', '$state', 'UserService', ($scope, $rootScope, $state, UserService) ->
 
   $scope.login = ->
-    User.login $scope.username, $scope.password,
+    UserService.login $scope.username, $scope.password,
       success: (user) ->
         $state.go 'index.users'
   

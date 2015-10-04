@@ -1,4 +1,4 @@
-app.service 'User', ->
+app.service 'UserService', ->
 
   @current = null;
 
