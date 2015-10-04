@@ -1,15 +1,22 @@
-app.service 'UserService', ->
+app.service 'UserService', ($http, Setting) ->
 
-  @current = null;
+  current = null;
+  _token = null;
 
-  @login = (email, password, callbacks) ->
+  @login = (username, password, callbacks) ->
     # TODO: fake login
-    @setCurrent(email: email)
-    callbacks.success @getCurrent()
+    $http.post(Setting.apiURL() + '/api/login', 
+      username: username
+      password: password
+    ).then(callbacks.success, callbacks?.error)
 
-  @getCurrent = -> @current
+  @getCurrent = -> current
 
-  @setCurrent = (user) -> @current = user
+  @setCurrent = (user) -> current = user
+
+  @setToken = (token) -> _token = token
+
+  @getToken = (token) -> _token
 
   @
   

@@ -10,7 +10,14 @@ app.controller 'LoginController', ['$scope', '$rootScope', '$state', 'UserServic
 
   $scope.login = ->
     UserService.login $scope.username, $scope.password,
-      success: (user) ->
-        $state.go 'index.users'
+      success: (response) ->
+        data = response.data
+        if data.status is 'success'
+          UserService.setCurrent(data.user)
+          $state.go 'index.users'
+        else
+          # TODO: show some cool message here to let the user know that he's failed
+          $scope.username = ""
+          $scope.password = ""
   
 ]
