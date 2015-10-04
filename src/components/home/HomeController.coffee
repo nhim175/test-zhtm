@@ -6,6 +6,6 @@ app.config ($stateProvider, $urlRouterProvider) ->
       templateUrl: 'components/home/home.html'
       controller: 'HomeController'
 
-app.controller 'HomeController', ['$scope', '$rootScope', '$document', '$timeout', 'User', 'Setting', ($scope, $rootScope, $document, $timeout, User, Setting) ->
-
+app.controller 'HomeController', ['$scope', '$rootScope', '$state', '$document', '$timeout', 'User', 'Setting', ($scope, $rootScope, $state, $document, $timeout, User, Setting) ->
+  
 ]

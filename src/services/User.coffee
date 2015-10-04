@@ -2,11 +2,14 @@ app.service 'User', ->
 
   @current = null;
 
-  @login = (email, password) -> 
+  @login = (email, password, callbacks) ->
+    # TODO: fake login
     @setCurrent(email: email)
-    true
+    callbacks.success @getCurrent()
 
   @getCurrent = -> @current
 
   @setCurrent = (user) -> @current = user
+
+  @
   

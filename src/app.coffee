@@ -2,7 +2,7 @@ app = angular.module 'app'
 
 app.config ($stateProvider, $urlRouterProvider, $locationProvider, $disqusProvider) ->
 
-  $urlRouterProvider.otherwise "/"
+  $urlRouterProvider.otherwise "/users"
 
   $locationProvider.hashPrefix '!'
 
