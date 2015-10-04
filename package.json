@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nhim175/nhim175.github.com",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "gulp": "^3.8.10",
     "gulp-clean": "^0.3.1",
@@ -25,6 +26,7 @@
     "gulp-sass": "^1.1.0",
     "gulp-symlink": "^2.1.0",
     "gulp-util": "^3.0.1",
+    "jsonwebtoken": "^5.4.0",
     "lodash": "^3.10.1"
   }
 }
