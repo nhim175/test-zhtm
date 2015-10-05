@@ -11,6 +11,7 @@
 - gulp clean-build && gulp
 - Run api server: cd /path/to/project/server && coffee index.coffee
 - open in browser: http://localhost:3000
+- Test account username: test, password: 123123
 
 # Tech
 
